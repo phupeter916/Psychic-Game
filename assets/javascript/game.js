@@ -6,54 +6,64 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 
 var wins = 0;
 var losses = 0;
-var guessleft = 10;
+var guessleft = 9;
+var userGuesses = [];
+var winscore = [];
+var lossesscore = [];
+var blank = "";
 
-document.onkeyup = function(event) {
+// set computer guess variable to randomally get letter
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    var userGuess = event.key;
-    
+// set the function onkeyup
+document.onkeyup = function (event) {                                                                                   
 
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]; 
+    //set variable user guess on click of bottom
+    var userGuess = event.key
 
-    
 
-    
+    // on event key when key is push it sets users guesses letter 
+    userGuesses.push(userGuess)
+    winscore.push(wins)
+    lossesscore.push(losses)
+
+
+
 
     if (userGuess === computerGuess) {
-        wins++; guessleft--;
+        wins++;
+        alert ("You Win!");
+
+
+        document.getElementById("guessleft").innerHTML = guessleft = 10;
+        document.getElementById("userGuess").innerHTML = userGuesses;
     }
 
-    if (userGuess != computerGuess) {
-        losses++; guessleft--;
+    if (userGuess != computerGuess && guessleft === 0) {
+        losses++;
+        alert ("You Lose!");
+
+        document.getElementById("guessleft").innerHTML = guessleft = 10;
+        document.getElementById("userGuess").innerHTML = userGuesses;
+        
     }
-
-    var html =
-    "<p>wins: " + wins + "</p>" +
-    "<p>losses: " + losses + "</p>" +
-    "<p>guessleft: " + guessleft + "</p>" +
-    <p>guess:  + guess + </p>;
-
-    
-    
-
-
-
-    
-
-
-      
-
-
-
-
-
-
-
+        
+    document.getElementById("wins").innerHTML = wins;
+    document.getElementById("losses").innerHTML = losses;
+    document.getElementById("guessleft").innerHTML = guessleft--;
+    document.getElementById("userGuess").innerHTML = userGuesses;
 
 
 
 
 };
+
+    
+
+
+
+
+
 
 
 
