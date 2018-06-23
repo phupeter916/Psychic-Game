@@ -10,7 +10,6 @@ var guessleft = 9;
 var userGuesses = [];
 var winscore = [];
 var lossesscore = [];
-var blank = "";
 
 // set computer guess variable to randomally get letter
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -36,7 +35,7 @@ document.onkeyup = function (event) {
 
 
         document.getElementById("guessleft").innerHTML = guessleft = 10;
-        document.getElementById("userGuess").innerHTML = userGuesses;
+        document.getElementById("userGuess").innerHTML = userGuesses = [];
     }
 
     if (userGuess != computerGuess && guessleft === 0) {
@@ -44,7 +43,7 @@ document.onkeyup = function (event) {
         alert ("You Lose!");
 
         document.getElementById("guessleft").innerHTML = guessleft = 10;
-        document.getElementById("userGuess").innerHTML = userGuesses;
+        document.getElementById("userGuess").innerHTML = userGuesses = [];
         
     }
         
@@ -54,7 +53,7 @@ document.onkeyup = function (event) {
     document.getElementById("userGuess").innerHTML = userGuesses;
 
 
-
+    
 
 };
 
